@@ -27,6 +27,8 @@ export default function NewEventsSection() {
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["events"],
     queryFn: fetchEvents,
+    staleTime: 5000,   // millal request saadetakse, default on 0
+    gcTime: 30000  // garbage collection, kui kauaks datat hoitakse, default 5min
   });
 
   let content;
